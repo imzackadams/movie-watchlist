@@ -77,7 +77,6 @@ while (user_input := input(menu)) != "8":
     elif user_input == "4":
         prompt_watch_movie()
     elif user_input == "5":
-        # TODO fix bug
         prompt_show_watched_movies()
     elif user_input == "6":
         prompt_add_user()

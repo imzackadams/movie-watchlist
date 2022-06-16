@@ -29,6 +29,7 @@ JOIN watched ON watched.movie_title = movies.title
 JOIN users ON users.username = watched.user_username
 WHERE users.username = ?;
 """
+SEARCH_MOVIE = "SELECT * FROM movies WHERE title LIKE ?;"
 
 connection = sqlite3.connect("data.db")
 
@@ -71,3 +72,11 @@ def get_watched_movies(username):
         cursor = connection.cursor()
         cursor.execute(SELECT_WATCHED_MOVIES, (username,))
         return cursor.fetchall()
+
+
+def search_movies(search_term):
+    with connection:
+        cursor = connection.cursor()
+        cursor.execute(SEARCH_MOVIE, (f"%{search_term}%",))
+        return cursor.fetchall()
+
