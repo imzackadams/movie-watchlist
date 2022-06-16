@@ -48,7 +48,7 @@ def prompt_show_watched_movies():
     if movies:
         print_movie_list("Watched", movies)
     else:
-        print("That user has no watched movies.")
+        print("That user has watched no movies yet!")
 
 
 def prompt_search_movies():
